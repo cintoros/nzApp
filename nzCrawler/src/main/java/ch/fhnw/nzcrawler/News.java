@@ -5,8 +5,6 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 
 /**
- * class representing a News
- *
  * @author Elias Schorr
  */
 @Entity
@@ -15,64 +13,40 @@ public class News {
     @Id
     @GeneratedValue
     private Long id;
-    private final String title, undertitle, link;
+    private final String title, undertitle, link, language;
 
-    /**
-     * standard constructor
-     */
     public News() {
-        this.title = "no title";
-        this.undertitle = "no undertitle";
-        this.link = "no link";
+        this.title = null;
+        this.undertitle = null;
+        this.link = null;
+        this.language = null;
     }
 
-    /**
-     * constructor that inits all variables
-     *
-     * @param title
-     * @param undertitle
-     * @param link
-     */
-    public News(String title, String undertitle, String link) {
+    public News(String title, String undertitle, String link, String language) {
         this.title = title;
         this.undertitle = undertitle;
         this.link = link;
+        this.language = language;
     }
 
-    /**
-     * gives back the id of the News
-     *
-     * @return
-     */
     public Long getId() {
         return id;
     }
 
-    /**
-     * gives back the title of the News
-     *
-     * @return
-     */
     public String getTitle() {
         return title;
     }
 
-    /**
-     * gives back the untertitle of the News
-     *
-     * @return
-     */
     public String getUndertitle() {
         return undertitle;
     }
 
-    /**
-     * gives back the link of the News
-     *
-     * @return
-     */
     public String getLink() {
         return link;
+    }
+
+    public String getLanguage() {
+        return language;
     }
 
 }

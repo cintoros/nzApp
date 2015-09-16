@@ -22,7 +22,7 @@ public class Application {
         return args -> {
             Arrays.asList("news_1,news_2,news_3".split(","))
                     .forEach(a -> {
-                        News account = newsRepo.save(new News(a, a + " untertitle", "www.nzzz.ch/" + a));
+                        News account = newsRepo.save(new News(a, a + " untertitle", "www.nzzz.ch/" + a,"DE"));
                     });
         };
     }
