@@ -5,6 +5,9 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 
+/**
+ * Elias Schorr <elias.schorr@fhnw.ch>
+ */
 public class MainActivity extends AppCompatActivity implements NewsFragment.OnFragmentInteractionListener{
 
     @Override
