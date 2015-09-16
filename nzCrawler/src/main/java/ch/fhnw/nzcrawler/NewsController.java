@@ -8,12 +8,11 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 /**
- * Mock class that gives back News objects
  *
  * @author Elias Schorr
  */
 @RestController
-public class MockNewsController {
+public class NewsController {
 
     @Autowired
     private NewsRepo newsRepo;
