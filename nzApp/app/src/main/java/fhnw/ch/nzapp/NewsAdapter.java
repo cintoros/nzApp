@@ -13,13 +13,13 @@ import android.widget.TextView;
 public class NewsAdapter extends ArrayAdapter<News> {
 
     public NewsAdapter(Context context, News[] resource) {
-        super(context, R.layout.row_layout, resource);
+        super(context, R.layout.row_layout_2, resource);
     }
 
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
         LayoutInflater layoutInflater = LayoutInflater.from(getContext());
-        View view = layoutInflater.inflate(R.layout.row_layout, parent, false);
+        View view = layoutInflater.inflate(R.layout.row_layout_2, parent, false);
         News item = getItem(position);
         TextView view1 = (TextView) view.findViewById(R.id.TitleView);
         view1.setText(item.getTitle());

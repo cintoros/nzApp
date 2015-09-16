@@ -15,13 +15,13 @@ import android.widget.Toast;
  * Elias Schorr <elias.schorr@fhnw.ch>
  */
 public class MainActivity extends AppCompatActivity {
+    NewsService newsService = new MockNewsService();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        News news[] = {new News("title", "undertitle", "link"), new News("title", "undertitel", "link")};
-        final ListAdapter adapter = new NewsAdapter(this, news);
+        final ListAdapter adapter = new NewsAdapter(this, newsService.getNewsByLanguage(Language.DE));
         ListView view = (ListView) findViewById(R.id.ListView);
         view.setAdapter(adapter);
         view.setOnItemClickListener(new AdapterView.OnItemClickListener() {
