@@ -6,9 +6,15 @@ import java.util.List;
  * Created by eliasschorr on 16.09.2015.
  */
 public class MockNewsService implements NewsService {
+    private final NewsListener listener;
+
+    public MockNewsService(NewsListener listener) {
+        this.listener = listener;
+    }
+
     @Override
-    public News[]getNewsByLanguage(Language language) {
-        News news[] = {new News("title", "undertitle", "link"), new News("title", "undertitel", "link")};
-        return news;
+    public void getNewsByLanguage(Language language) {
+        News news[] = {new News("title_1", "undertitle_1", "link"), new News("title_1", "undertitel_1", "link")};
+        listener.setNews(news);
     }
 }

@@ -14,16 +14,14 @@ import android.widget.Toast;
 /**
  * Elias Schorr <elias.schorr@fhnw.ch>
  */
-public class MainActivity extends AppCompatActivity {
-    NewsService newsService = new MockNewsService();
+public class MainActivity extends AppCompatActivity implements NewsListener {
+    NewsService newsService = new NewsServiceImpl(this);
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        final ListAdapter adapter = new NewsAdapter(this, newsService.getNewsByLanguage(Language.DE));
         ListView view = (ListView) findViewById(R.id.ListView);
-        view.setAdapter(adapter);
         view.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
@@ -32,6 +30,10 @@ public class MainActivity extends AppCompatActivity {
                 Toast.makeText(MainActivity.this, selected, Toast.LENGTH_SHORT);
             }
         });
+        News news[] = {new News("title", "undertitle", "link"), new News("title", "undertitel", "link")};
+        final NewsAdapter adapter = new NewsAdapter(this, news);
+        view.setAdapter(adapter);
+
     }
 
     @Override
@@ -47,13 +49,22 @@ public class MainActivity extends AppCompatActivity {
         // automatically handle clicks on the Home/Up button, so long
         // as you specify a parent activity in AndroidManifest.xml.
         int id = item.getItemId();
-
         //noinspection SimplifiableIfStatement
         if (id == R.id.action_settings) {
+            newsService.getNewsByLanguage(Language.DE);
             return true;
         }
 
         return super.onOptionsItemSelected(item);
     }
 
+    @Override
+    public void setNews(News[] news) {
+        ListView view = (ListView) findViewById(R.id.ListView);
+        final NewsAdapter adapter = new NewsAdapter(this, news);
+        view.setAdapter(adapter);
+        for (News n : news) {
+            System.out.println(n.toString());
+        }
+    }
 }

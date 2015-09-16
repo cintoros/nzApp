@@ -7,5 +7,5 @@ import java.util.List;
  */
 public interface NewsService {
 
-    News[] getNewsByLanguage(Language language);
+    void getNewsByLanguage(Language language);
 }

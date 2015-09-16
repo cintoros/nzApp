@@ -10,7 +10,7 @@ import android.widget.TextView;
 /**
  * Created by eliasschorr on 16.09.2015.
  */
-public class NewsAdapter extends ArrayAdapter<News> {
+public class NewsAdapter extends ArrayAdapter<News> implements NewsListener{
 
     public NewsAdapter(Context context, News[] resource) {
         super(context, R.layout.row_layout_2, resource);
@@ -26,5 +26,11 @@ public class NewsAdapter extends ArrayAdapter<News> {
         TextView view2 = (TextView) view.findViewById(R.id.UnderTitleView);
         view2.setText(item.getUndertitle());
         return view;
+    }
+
+    @Override
+    public void setNews(News[] news) {
+        clear();
+        addAll(news);
     }
 }
