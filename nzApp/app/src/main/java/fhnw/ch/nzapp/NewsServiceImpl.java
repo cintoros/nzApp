@@ -12,8 +12,8 @@ public class NewsServiceImpl implements NewsService {
     private final NewsListener listener;
     private GitHubService service;
     private RestAdapter restAdapter;
-    //private String url = "http://localhost:8080";
     private String url = "http://10.0.2.2:8080/";
+
     public NewsServiceImpl(NewsListener listener) {
         restAdapter = new RestAdapter.Builder()
                 .setEndpoint(url)

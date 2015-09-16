@@ -1,5 +1,7 @@
 package fhnw.ch.nzapp;
 
+import android.content.Intent;
+import android.net.Uri;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.Menu;
@@ -15,7 +17,8 @@ import android.widget.Toast;
  * Elias Schorr <elias.schorr@fhnw.ch>
  */
 public class MainActivity extends AppCompatActivity implements NewsListener {
-    NewsService newsService = new NewsServiceImpl(this);
+    private NewsService newsService = new NewsServiceImpl(this);
+    private NewsAdapter adapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,9 +28,9 @@ public class MainActivity extends AppCompatActivity implements NewsListener {
         view.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                String selected = "You selected" + String.valueOf(parent.getItemAtPosition(position));
-                System.out.println(selected);
-                Toast.makeText(MainActivity.this, selected, Toast.LENGTH_SHORT);
+                String link = adapter.getItem(position).getLink();
+                Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(link));
+                startActivity(browserIntent);
             }
         });
         News news[] = {new News("title", "undertitle", "link"), new News("title", "undertitel", "link")};
@@ -61,10 +64,7 @@ public class MainActivity extends AppCompatActivity implements NewsListener {
     @Override
     public void setNews(News[] news) {
         ListView view = (ListView) findViewById(R.id.ListView);
-        final NewsAdapter adapter = new NewsAdapter(this, news);
+        adapter = new NewsAdapter(this, news);
         view.setAdapter(adapter);
-        for (News n : news) {
-            System.out.println(n.toString());
-        }
     }
 }
