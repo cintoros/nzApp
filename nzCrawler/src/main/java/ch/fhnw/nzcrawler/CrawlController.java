@@ -13,13 +13,14 @@ public class CrawlController {
 
     @Autowired
     NewsRepo newsRepo;
+    @Autowired
+    CrawlerInterface crawler;
 
     @RequestMapping("/crawl")
-
     public String crawl() {
         System.out.println("crawl");
         try {
-            new Crawler(newsRepo).crawl();
+            crawler.crawl(newsRepo);
         } catch (Exception e) {
             return "Failed";
         }

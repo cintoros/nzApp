@@ -9,21 +9,19 @@ import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
-import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Profile;
+import org.springframework.stereotype.Service;
 
 /**
  *
  * @author Elias Schorr
  */
-public class Crawler {
+@Service
+@Profile("prod")
+public class Crawler implements CrawlerInterface {
 
-    private final NewsRepo newsRepo;
-
-    public Crawler(NewsRepo newsRepo) {
-        this.newsRepo = newsRepo;
-    }
-
-    public void crawl() {
+    @Override
+    public void crawl(NewsRepo newsRepo) {
         try {
             //both urls work
             String startURL = "http://www.nzz.ch/newsticker/";
@@ -51,7 +49,7 @@ public class Crawler {
         } catch (MalformedURLException ex) {
             System.out.println("Website not found!!");
         } catch (IOException ex) {
-            System.out.println("swbsite not parsed!!");
+            System.out.println("Website not parsed!!");
         }
 
     }
