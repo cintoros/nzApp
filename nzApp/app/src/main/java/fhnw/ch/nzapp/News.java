@@ -5,18 +5,20 @@ package fhnw.ch.nzapp;
  */
 public class News {
     private Long id;
-    private final String title, undertitle, link;
+    private final String title, undertitle, link, imageLink;
 
     public News() {
         this.title = "no title";
         this.undertitle = "no undertitle";
         this.link = "no link";
+        this.imageLink = "no link";
     }
 
-    public News(String title, String undertitle, String link) {
+    public News(String title, String undertitle, String link, String imageLink) {
         this.title = title;
         this.undertitle = undertitle;
         this.link = link;
+        this.imageLink = imageLink;
     }
 
     public Long getId() {
@@ -34,6 +36,10 @@ public class News {
 
     public String getLink() {
         return link;
+    }
+
+    public String getImageLink() {
+        return imageLink;
     }
 
     @Override

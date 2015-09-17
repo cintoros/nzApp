@@ -7,20 +7,22 @@
 
     <TextView
         android:id="@+id/TitleView"
-        android:textStyle="bold"
-        android:textSize="20sp"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:textSize="20sp"
+        android:textStyle="bold" />
 
     <TextView
         android:id="@+id/UnderTitleView"
-        android:textStyle="italic"
-        android:textSize="15sp"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:textSize="15sp"
+        android:textStyle="italic" />
+
     <ImageView
+        android:id="@+id/ImageView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
-        android:src="@drawable/no_image"/>
+        android:src="@drawable/no_image" />
 </LinearLayout>
