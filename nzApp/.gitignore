@@ -44,3 +44,9 @@ proguard/
 
 ### Android Patch ###
 gen-external-apklibs
+
+# Android Studio
+/.idea/workspace.xml
+/.idea/libraries
+.DS_Store
+/captures
