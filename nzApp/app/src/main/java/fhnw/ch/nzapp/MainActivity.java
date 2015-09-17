@@ -33,9 +33,8 @@ public class MainActivity extends AppCompatActivity implements NewsListener {
                 startActivity(browserIntent);
             }
         });
-        News news[] = {new News("title", "undertitle", "link"), new News("title", "undertitel", "link")};
-        final NewsAdapter adapter = new NewsAdapter(this, news);
-        view.setAdapter(adapter);
+       // fills the View with Mock-Items
+       new MockNewsService(this).getNewsByLanguage(Language.DE);
 
     }
 
