@@ -23,18 +23,18 @@ public class Crawler implements CrawlerInterface {
     @Override
     public void crawl(NewsRepo newsRepo) {
         try {
-            //both urls work
-            String startURL = "http://www.nzz.ch/newsticker/";
-//            String startURL = "http://www.nzz.ch/";
-            URL url = new URL(startURL);
-            URLConnection conn = url.openConnection();
-            conn.setRequestProperty("User-Agent", "TagCloudWebCrawler/0.1 Mozilla/5.0");
-            BufferedInputStream pageInputStream = new BufferedInputStream(conn.getInputStream());
-            Document doc = Jsoup.parse(pageInputStream, null, startURL);
-            // extract all articles out of src
-            Elements contents = doc.select("article");
-            for (Element content : contents) {//getting content for all articles
+            String startURL = "http://www.nzz.ch/";
+            Document doc = Jsoup.connect(startURL).get();
+            Elements contents = doc.select("article"); // extract all articles out of src
+            for (Element content : contents) {//getting content for all article
                 Elements articleLink = content.select("a.teaser__link");
+                Element img = articleLink.select("img").first();
+                String imageSrc = null;
+                try {//try to clean image src
+                    imageSrc = img.attr("data-srcset");
+                    imageSrc = imageSrc.split(",")[0].split(" ")[0];
+                } catch (Exception e) {
+                }
                 String title = articleLink.select("div.title__catchline").text();
                 String undertitle = articleLink.select("div.title__name").text();
                 String link = articleLink.select("[href]").attr("href");
@@ -44,7 +44,9 @@ public class Crawler implements CrawlerInterface {
                 System.out.println(undertitle);
                 System.out.println("Link:");
                 System.out.println(link);
-                newsRepo.save(new News(title, undertitle, link, "DE"));
+                System.out.println("Image:");
+                System.out.println(imageSrc);
+                newsRepo.save(new News(title, undertitle, link, imageSrc, "DE"));
             }
         } catch (MalformedURLException ex) {
             System.out.println("Website not found!!");

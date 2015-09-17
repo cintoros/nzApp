@@ -16,7 +16,7 @@ public class MockCrawler implements CrawlerInterface {
     public void crawl(NewsRepo newsRepo) {
         Arrays.asList("news_1,news_2,news_3".split(","))
                 .forEach(a -> {
-                    News account = newsRepo.save(new News(a, a + " untertitle", "www.nzzz.ch/" + a, "DE"));
+                    News account = newsRepo.save(new News(a, a + " untertitle", "www.example.ch/" + a, "www.example.ch/" + a + "/image.png", "DE"));
                 });
     }
 }
