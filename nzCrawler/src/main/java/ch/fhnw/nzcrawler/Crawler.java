@@ -1,10 +1,7 @@
 package ch.fhnw.nzcrawler;
 
-import java.io.BufferedInputStream;
 import java.io.IOException;
 import java.net.MalformedURLException;
-import java.net.URL;
-import java.net.URLConnection;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;

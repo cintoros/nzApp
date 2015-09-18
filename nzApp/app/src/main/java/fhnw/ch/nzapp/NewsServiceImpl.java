@@ -10,9 +10,9 @@ import retrofit.client.Response;
  */
 public class NewsServiceImpl implements NewsService {
     private final NewsListener listener;
-    private GitHubService service;
-    private RestAdapter restAdapter;
-    private String url = "http://10.0.2.2:8080/";
+    private final GitHubService service;
+    private final RestAdapter restAdapter;
+    private final String url = "http://10.0.2.2:8080/";
 
     public NewsServiceImpl(NewsListener listener) {
         restAdapter = new RestAdapter.Builder()

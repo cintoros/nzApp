@@ -33,6 +33,7 @@ public class WebBrowser extends AppCompatActivity {
         }
         return super.onOptionsItemSelected(item);
     }
+
     private class Browser extends WebViewClient {
         @Override
         public boolean shouldOverrideUrlLoading(WebView view, String url) {

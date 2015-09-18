@@ -20,7 +20,7 @@ public class CrawlController {
     public String crawl() {
         System.out.println("crawl");
         try {
-           newsRepo.deleteAll();
+            newsRepo.deleteAll();
             crawler.crawl(newsRepo);
         } catch (Exception e) {
             return "Failed";
