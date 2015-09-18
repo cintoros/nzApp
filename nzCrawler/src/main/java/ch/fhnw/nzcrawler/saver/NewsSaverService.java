@@ -1,5 +1,8 @@
-package ch.fhnw.nzcrawler;
+package ch.fhnw.nzcrawler.saver;
 
+import ch.fhnw.nzcrawler.model.News;
+import ch.fhnw.nzcrawler.repos.NewsLangRepo;
+import ch.fhnw.nzcrawler.repos.NewsLinkRepo;
 import java.util.Collection;
 import org.springframework.beans.factory.annotation.Autowired;
 

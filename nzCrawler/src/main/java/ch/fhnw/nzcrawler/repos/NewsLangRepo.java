@@ -1,5 +1,6 @@
-package ch.fhnw.nzcrawler;
+package ch.fhnw.nzcrawler.repos;
 
+import ch.fhnw.nzcrawler.model.NewsLang;
 import java.util.Collection;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.rest.core.annotation.RestResource;

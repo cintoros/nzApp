@@ -1,5 +1,6 @@
-package ch.fhnw.nzcrawler;
+package ch.fhnw.nzcrawler.crawl;
 
+import ch.fhnw.nzcrawler.model.News;
 import java.util.Arrays;
 import java.util.Collection;
 import java.util.HashSet;

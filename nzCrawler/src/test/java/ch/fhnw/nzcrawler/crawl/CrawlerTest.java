@@ -1,5 +1,6 @@
-package ch.fhnw.nzcrawler;
+package ch.fhnw.nzcrawler.crawl;
 
+import ch.fhnw.nzcrawler.model.News;
 import java.util.Collection;
 import org.junit.Test;
 import static org.junit.Assert.*;

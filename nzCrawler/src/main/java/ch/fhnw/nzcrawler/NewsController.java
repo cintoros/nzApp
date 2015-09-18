@@ -1,5 +1,10 @@
 package ch.fhnw.nzcrawler;
 
+import ch.fhnw.nzcrawler.repos.NewsLinkRepo;
+import ch.fhnw.nzcrawler.repos.NewsLangRepo;
+import ch.fhnw.nzcrawler.model.NewsJson;
+import ch.fhnw.nzcrawler.model.NewsLink;
+import ch.fhnw.nzcrawler.model.NewsLang;
 import java.util.Collection;
 import java.util.HashSet;
 import java.util.Optional;

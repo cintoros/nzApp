@@ -1,5 +1,8 @@
-package ch.fhnw.nzcrawler;
+package ch.fhnw.nzcrawler.saver;
 
+import ch.fhnw.nzcrawler.model.News;
+import ch.fhnw.nzcrawler.model.NewsLang;
+import ch.fhnw.nzcrawler.model.NewsLink;
 import java.util.Collection;
 import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Service;

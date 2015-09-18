@@ -1,4 +1,4 @@
-package ch.fhnw.nzcrawler;
+package ch.fhnw.nzcrawler.translate;
 
 import com.memetix.mst.language.Language;
 
