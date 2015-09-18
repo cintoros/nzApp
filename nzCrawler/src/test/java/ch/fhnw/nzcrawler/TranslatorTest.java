@@ -25,7 +25,7 @@ public class TranslatorTest {
     public void testGetTranslation() {
         Language language = Language.ENGLISH;
         String text = "Hallo Welt";
-        String expResult = "hello world";
+        String expResult = "Hello world";
         String result = instance.getTranslation(language, text);
         assertEquals("german to english", expResult, result);
     }

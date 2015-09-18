@@ -14,7 +14,7 @@ import org.springframework.stereotype.Service;
 @Profile("prod")
 public class Translator implements TranslatorInterface {
 
-    private static final String ID = "ID", SECRET_ID = "SECRET_ID";
+    private static final String ID = "nzzwebcrawlertranslator", SECRET_ID = "kssG2B8sxyy3VmlbABVLp4KLffH/FPauAKdPW1q5ivg=";
 
     @Override
     public String getTranslation(Language language, String text) {
