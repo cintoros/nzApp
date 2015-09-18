@@ -40,7 +40,7 @@ public class NewsController {
         HashSet<News> news = new HashSet<>();
         Collection<NewsLang> findByLanguage = langRepo.findByLanguage(language);
         for (NewsLang findByLanguage1 : findByLanguage) {
-            Optional<NewsLink> findById = linkRepo.findByNewsId(findByLanguage1.getId());
+            Optional<NewsLink> findById = linkRepo.findByNewsId(findByLanguage1.getNewsId());
             if (findById.isPresent()) {
                 news.add(new News(findByLanguage1, findById.get()));
             }
