@@ -35,7 +35,6 @@
             android:id="@+id/ImageView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal"
-            android:src="@drawable/no_image" />
+            android:layout_gravity="center_horizontal" />
     </RelativeLayout>
 </LinearLayout>

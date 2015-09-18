@@ -31,7 +31,7 @@ public class ImageLoadListener {
 
     private void deleteImage() {
         try {
-            View viewById = parent.findViewById(R.id.progressBar);
+            View viewById = parent.findViewById(R.id.ImageView);
             viewById.setVisibility(View.GONE);
         } catch (Exception e) {
         }
