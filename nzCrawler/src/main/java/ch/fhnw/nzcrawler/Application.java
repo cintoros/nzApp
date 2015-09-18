@@ -1,5 +1,6 @@
 package ch.fhnw.nzcrawler;
 
+import java.util.Collection;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
@@ -23,7 +24,8 @@ public class Application {
     @Bean
     CommandLineRunner runner(NewsRepo newsRepo) {
         return args -> {
-            crawler.crawl(newsRepo);
+            Collection<News> crawl = crawler.crawl();
+            newsRepo.save(crawl);
         };
     }
 }

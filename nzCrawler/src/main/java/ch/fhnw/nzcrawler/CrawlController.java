@@ -1,5 +1,6 @@
 package ch.fhnw.nzcrawler;
 
+import java.util.Collection;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -21,7 +22,8 @@ public class CrawlController {
         System.out.println("crawl");
         try {
             newsRepo.deleteAll();
-            crawler.crawl(newsRepo);
+            Collection<News> crawl = crawler.crawl();
+            newsRepo.save(crawl);
         } catch (Exception e) {
             return "Failed";
         }

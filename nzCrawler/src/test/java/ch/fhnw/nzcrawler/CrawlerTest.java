@@ -1,14 +1,6 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package ch.fhnw.nzcrawler;
 
-import org.junit.After;
-import org.junit.AfterClass;
-import org.junit.Before;
-import org.junit.BeforeClass;
+import java.util.Collection;
 import org.junit.Test;
 import static org.junit.Assert.*;
 
@@ -18,14 +10,21 @@ import static org.junit.Assert.*;
  */
 public class CrawlerTest {
 
-//    /**
-//     * Test of crawl method, of class Crawler.
-//     */
-//    @Test
-//    public void testCrawl() {
-//        System.out.println("crawl");
-//        Crawler instance = new Crawler();
-//        instance.crawl();
-//    }
+    /**
+     * Test of crawl method, of class Crawler.
+     */
+    @Test
+    public void testCrawl() {
+        System.out.println("crawl");
+        Crawler instance = new Crawler();
+        Collection<News> crawl = instance.crawl();
+        if (crawl == null) {
+            fail("The crawling failed. No Opject returned");
+        } else {
+            for (News crawl1 : crawl) {
+                crawl1.toString();
+            }
+        }
+    }
 
 }

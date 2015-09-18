@@ -1,10 +1,12 @@
 package ch.fhnw.nzcrawler;
 
+import java.util.Collection;
+
 /**
  *
  * @author Elias Schorr
  */
 public interface CrawlerInterface {
 
-    public void crawl(NewsRepo newsRepo);
+    public Collection<News> crawl();
 }
