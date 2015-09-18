@@ -3,7 +3,6 @@ package fhnw.ch.nzapp;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.AsyncTask;
-import android.widget.ImageView;
 
 import java.io.InputStream;
 
@@ -11,10 +10,10 @@ import java.io.InputStream;
  * Created by eliasschorr on 18.09.2015.
  */
 public class DownloadImageTask extends AsyncTask<String, Void, Bitmap> {
-    ImageView bmImage;
+    ImageLoadListener listener;
 
-    public DownloadImageTask(ImageView bmImage) {
-        this.bmImage = bmImage;
+    public DownloadImageTask(ImageLoadListener listener) {
+        this.listener = listener;
     }
 
     protected Bitmap doInBackground(String... urls) {
@@ -24,15 +23,15 @@ public class DownloadImageTask extends AsyncTask<String, Void, Bitmap> {
             InputStream in = new java.net.URL(urldisplay).openStream();
             mIcon11 = BitmapFactory.decodeStream(in);
         } catch (Exception e) {
-            // Log.e("Error", e.getMessage());
-            // e.printStackTrace();
         }
         return mIcon11;
     }
 
     protected void onPostExecute(Bitmap result) {
         if (result != null) {
-            bmImage.setImageBitmap(result);
+            listener.onSuccess(result);
+        } else {
+            listener.onFailure("FAIL");
         }
     }
 }
