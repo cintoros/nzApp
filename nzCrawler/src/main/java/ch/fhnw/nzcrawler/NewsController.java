@@ -1,7 +1,8 @@
 package ch.fhnw.nzcrawler;
 
 import java.util.Collection;
-import java.util.List;
+import java.util.HashSet;
+import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -15,21 +16,31 @@ import org.springframework.web.bind.annotation.RestController;
 public class NewsController {
 
     @Autowired
-    private NewsRepo newsRepo;
+    private NewsLangRepo langRepo;
+    @Autowired
+    private NewsLinkRepo linkRepo;
 
     @RequestMapping("/alltitles")
-    public List<News> getTitles() {
-        return newsRepo.findAll();
+    public Collection<NewsJson> getTitles() {
+        return getNews("DE");
     }
 
     @RequestMapping("/titles")
-    public Collection<News> getTitlesByLanguage(@RequestParam(value = "language") String language) {
+    public Collection<NewsJson> getTitlesByLanguage(@RequestParam(value = "language") String language) {
         System.out.println("ByLan: " + language);
-        Collection<News> findByLanguage = newsRepo.findByLanguage(language);
-        for (News findByLanguage1 : findByLanguage) {
-            System.out.println(findByLanguage.toString());
+        return getNews(language);
+    }
+
+    private Collection<NewsJson> getNews(String language) {
+        HashSet<NewsJson> news = new HashSet<>();
+        Collection<NewsLang> findByLanguage = langRepo.findByLanguage(language);
+        for (NewsLang findByLanguage1 : findByLanguage) {
+            Optional<NewsLink> findById = linkRepo.findById(findByLanguage1.getId());
+            if (findById.isPresent()) {
+                news.add(new NewsJson(findByLanguage1, findById.get()));
+            }
         }
-        return findByLanguage;
+        return news;
     }
 
 }

@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.RestController;
 public class CrawlController {
 
     @Autowired
-    NewsRepo newsRepo;
+    NewsSaverService newsSaver;
     @Autowired
     CrawlerInterface crawler;
 
@@ -21,10 +21,10 @@ public class CrawlController {
     public String crawl() {
         System.out.println("crawl");
         try {
-            newsRepo.deleteAll();
             Collection<News> crawl = crawler.crawl();
-            newsRepo.save(crawl);
+            newsSaver.save(crawl);
         } catch (Exception e) {
+            System.err.println(e);
             return "Failed";
         }
         return "Success";
