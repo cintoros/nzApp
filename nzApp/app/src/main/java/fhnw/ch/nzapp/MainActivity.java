@@ -26,8 +26,13 @@ public class MainActivity extends AppCompatActivity implements NewsListener {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 String link = adapter.getItem(position).getLink();
-                Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(link));
-                startActivity(browserIntent);
+                if(link!=null){
+                    if (!link.startsWith("https://") && !link.startsWith("http://")) {
+                        link = "http://" + link;
+                    }
+                    Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(link));
+                    startActivity(browserIntent);
+                }
             }
         });
         // fills the View with Mock-Items
