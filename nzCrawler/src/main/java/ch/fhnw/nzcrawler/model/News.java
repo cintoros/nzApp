@@ -1,29 +1,15 @@
 package ch.fhnw.nzcrawler.model;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-
 /**
  * @author Elias Schorr
  */
-@Entity
 public class News {
 
-    @Id
-    @GeneratedValue
-    private Long id;
+    private Long newsId;
     private final String title, undertitle, link, imageLink, language;
 
-    public News() {
-        this.title = null;
-        this.undertitle = null;
-        this.link = null;
-        this.language = null;
-        this.imageLink = null;
-    }
-
-    public News(String title, String undertitle, String link, String imageLink, String language) {
+    public News(Long newsId, String title, String undertitle, String link, String imageLink, String language) {
+        this.newsId = newsId;
         this.title = title;
         this.undertitle = undertitle;
         this.link = link;
@@ -31,8 +17,17 @@ public class News {
         this.language = language;
     }
 
-    public Long getId() {
-        return id;
+    public News(NewsLang lang, NewsLink link) {
+        this.language = lang.getLanguage();
+        this.title = lang.getTitle();
+        this.undertitle = lang.getUndertitle();
+        this.link = link.getLink();
+        this.newsId = link.getNewsId();
+        this.imageLink = link.getImageLink();
+    }
+
+    public Long getNewsId() {
+        return newsId;
     }
 
     public String getTitle() {

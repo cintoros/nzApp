@@ -2,7 +2,7 @@ package ch.fhnw.nzcrawler;
 
 import ch.fhnw.nzcrawler.repos.NewsLinkRepo;
 import ch.fhnw.nzcrawler.repos.NewsLangRepo;
-import ch.fhnw.nzcrawler.model.NewsJson;
+import ch.fhnw.nzcrawler.model.News;
 import ch.fhnw.nzcrawler.model.NewsLink;
 import ch.fhnw.nzcrawler.model.NewsLang;
 import java.util.Collection;
@@ -26,23 +26,23 @@ public class NewsController {
     private NewsLinkRepo linkRepo;
 
     @RequestMapping("/alltitles")
-    public Collection<NewsJson> getTitles() {
+    public Collection<News> getTitles() {
         return getNews("DE");
     }
 
     @RequestMapping("/titles")
-    public Collection<NewsJson> getTitlesByLanguage(@RequestParam(value = "language") String language) {
+    public Collection<News> getTitlesByLanguage(@RequestParam(value = "language") String language) {
         System.out.println("ByLan: " + language);
         return getNews(language);
     }
 
-    private Collection<NewsJson> getNews(String language) {
-        HashSet<NewsJson> news = new HashSet<>();
+    private Collection<News> getNews(String language) {
+        HashSet<News> news = new HashSet<>();
         Collection<NewsLang> findByLanguage = langRepo.findByLanguage(language);
         for (NewsLang findByLanguage1 : findByLanguage) {
-            Optional<NewsLink> findById = linkRepo.findById(findByLanguage1.getId());
+            Optional<NewsLink> findById = linkRepo.findByNewsId(findByLanguage1.getId());
             if (findById.isPresent()) {
-                news.add(new NewsJson(findByLanguage1, findById.get()));
+                news.add(new News(findByLanguage1, findById.get()));
             }
         }
         return news;

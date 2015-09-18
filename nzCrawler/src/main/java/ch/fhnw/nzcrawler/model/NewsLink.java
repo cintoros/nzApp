@@ -2,7 +2,6 @@ package ch.fhnw.nzcrawler.model;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 /**
@@ -14,20 +13,25 @@ import javax.persistence.Id;
 public class NewsLink {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private final Long id;
+    @GeneratedValue
+    private Long id;
+    private final Long newsId;
     private final String link, imageLink;
 
     public NewsLink() {
-        this.id = null;
+        this.newsId = null;
         this.link = null;
         this.imageLink = null;
     }
 
-    public NewsLink(Long id, String link, String imageLink) {
+    public NewsLink(Long newsId, String link, String imageLink) {
         this.link = link;
         this.imageLink = imageLink;
-        this.id = id;
+        this.newsId = newsId;
+    }
+
+    public Long getNewsId() {
+        return newsId;
     }
 
     public Long getId() {

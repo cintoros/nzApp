@@ -13,5 +13,5 @@ import org.springframework.data.rest.core.annotation.RestResource;
 @RestResource
 public interface NewsLinkRepo extends JpaRepository<NewsLink, Long> {
 
-    Optional<NewsLink> findById(Long id);
+    Optional<NewsLink> findByNewsId(Long newsId);
 }

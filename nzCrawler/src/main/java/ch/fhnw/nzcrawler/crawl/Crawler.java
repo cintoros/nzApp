@@ -25,6 +25,7 @@ public class Crawler implements CrawlerInterface {
             String startURL = "http://www.nzz.ch/";
             Document doc = Jsoup.connect(startURL).get();
             Elements contents = doc.select("article"); // extract all articles out of src
+            long counter = 1;
             for (Element content : contents) {//getting content for all article
                 Elements articleLink = content.select("a.teaser__link");
                 Element img = articleLink.select("img").first();
@@ -37,7 +38,8 @@ public class Crawler implements CrawlerInterface {
                 String title = articleLink.select("div.title__catchline").text();
                 String undertitle = articleLink.select("div.title__name").text();
                 String link = articleLink.select("[href]").attr("href");
-                news.add(new News(title, undertitle, link, imageSrc, "DE"));
+                news.add(new News(counter, title, undertitle, link, imageSrc, "DE"));
+                counter++;
             }
         } catch (Exception ex) {
             System.out.println("Website not parsed!!");

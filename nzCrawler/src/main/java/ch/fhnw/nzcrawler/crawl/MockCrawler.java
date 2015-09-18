@@ -1,7 +1,6 @@
 package ch.fhnw.nzcrawler.crawl;
 
 import ch.fhnw.nzcrawler.model.News;
-import java.util.Arrays;
 import java.util.Collection;
 import java.util.HashSet;
 import org.springframework.context.annotation.Profile;
@@ -18,9 +17,12 @@ public class MockCrawler implements CrawlerInterface {
     @Override
     public Collection<News> crawl() {
         HashSet<News> news = new HashSet<>();
-        Arrays.asList("news_1,news_2,news_3".split(",")).forEach(a -> {
-            news.add(new News(a, a + " untertitle", "www.example.ch/" + a, "www.example.ch/" + a + "/image.png", "DE"));
-        });
+        long counter = 1;
+        String[] split = "Hallo Welt,Guten Morgen,Guten Abend".split(",");
+        for (String text : split) {
+            news.add(new News(counter, text, "Er hat " + '"' + text + '"' + " gesagt", null, null, "DE"));
+            counter++;
+        }
         return news;
     }
 }

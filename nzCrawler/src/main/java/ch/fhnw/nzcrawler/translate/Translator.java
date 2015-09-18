@@ -25,8 +25,6 @@ public class Translator implements TranslatorInterface {
             System.out.println(execute);
             return execute;
         } catch (Exception e) {
-            System.out.println(e);
-            System.err.println(e);
             return null;
         }
     }
