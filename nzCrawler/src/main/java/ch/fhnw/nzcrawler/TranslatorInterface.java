@@ -1,5 +1,7 @@
 package ch.fhnw.nzcrawler;
 
+import com.memetix.mst.language.Language;
+
 /**
  *
  * @author Elias Schorr

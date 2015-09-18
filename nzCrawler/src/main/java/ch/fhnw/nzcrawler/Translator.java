@@ -1,5 +1,7 @@
 package ch.fhnw.nzcrawler;
 
+import com.memetix.mst.language.Language;
+import com.memetix.mst.translate.Translate;
 import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Service;
 
@@ -12,12 +14,19 @@ import org.springframework.stereotype.Service;
 @Profile("prod")
 public class Translator implements TranslatorInterface {
 
+    private static final String ID = "ID", SECRET_ID = "SECRET_ID";
+
     @Override
     public String getTranslation(Language language, String text) {
         try {
-            //TODO translation of text
-            return null;
+            Translate.setClientId(ID);
+            Translate.setClientSecret(SECRET_ID);
+            String execute = Translate.execute(text, language);
+            System.out.println(execute);
+            return execute;
         } catch (Exception e) {
+            System.out.println(e);
+            System.err.println(e);
             return null;
         }
     }
