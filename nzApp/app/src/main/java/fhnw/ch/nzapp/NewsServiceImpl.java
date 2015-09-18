@@ -24,7 +24,7 @@ public class NewsServiceImpl implements NewsService {
 
     @Override
     public void getNewsByLanguage(Language language) {
-        service.getNews(new Callback<News[]>() {
+        Callback<News[]> newsCallback = new Callback<News[]>() {
             @Override
             public void success(News[] news, Response response) {
                 System.out.println("Response-Message: " + response);
@@ -35,6 +35,24 @@ public class NewsServiceImpl implements NewsService {
             public void failure(RetrofitError error) {
                 System.out.println("Error-Message: " + error);
             }
-        });
+        };
+        switch (language) {
+            case DE: {
+                service.getNewsDE(newsCallback);
+                break;
+            }
+            case EN: {
+                service.getNewsEN(newsCallback);
+                break;
+            }
+            case FR: {
+                service.getNewsFR(newsCallback);
+                break;
+            }
+            default: {
+                service.getNews(newsCallback);
+                break;
+            }
+        }
     }
 }

@@ -44,12 +44,23 @@ public class MainActivity extends AppCompatActivity implements NewsListener {
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        int id = item.getItemId();
-        if (id == R.id.action_settings) {
-            newsService.getNewsByLanguage(Language.DE);
-            return true;
+        switch (item.getItemId()) {
+            case R.id.english: {
+                newsService.getNewsByLanguage(Language.EN);
+                break;
+            }
+            case R.id.french: {
+                newsService.getNewsByLanguage(Language.FR);
+                break;
+            }
+            case R.id.german: {
+                newsService.getNewsByLanguage(Language.DE);
+                break;
+            }
+            default:
+                return false;
         }
-        return super.onOptionsItemSelected(item);
+        return true;
     }
 
     @Override
