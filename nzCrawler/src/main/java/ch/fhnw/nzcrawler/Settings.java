@@ -10,4 +10,5 @@ public class Settings {
     public static final Boolean MULTI_LANG = Boolean.FALSE;
     public static final String PROD = "prod", DEV = "dev";
     public static final String ID = "nzzwebcrawlertranslator", SECRET_ID = "kssG2B8sxyy3VmlbABVLp4KLffH/FPauAKdPW1q5ivg=";
+    public static final String ADMIN = "admin", PASSWORD = "passwort";
 }
