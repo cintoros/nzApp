@@ -32,7 +32,7 @@ public class DownloadImageTask extends AsyncTask<String, Void, Bitmap> {
         if (result != null) {
             listener.onSuccess(result);
         } else {
-            listener.onFailure("FAIL");
+            listener.onFailure("FAILED TO LOAD IMAGE");
         }
     }
 }

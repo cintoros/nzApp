@@ -26,6 +26,7 @@ public class ImageLoadListener {
     }
 
     public void onFailure(String message) {
+        System.out.println(message);
         deleteImage();
         deleteProgress();
     }

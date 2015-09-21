@@ -9,6 +9,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
+import android.widget.Toast;
 
 /**
  * @author Elias Schorr
@@ -26,11 +27,11 @@ public class MainActivity extends AppCompatActivity implements NewsListener {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 String link = adapter.getItem(position).getLink();
-                if(link!=null){
+                if (link != null) {
                     if (!link.startsWith("https://") && !link.startsWith("http://")) {
                         link = "http://" + link;
                     }
-                    Intent intent =new Intent(Intent.ACTION_VIEW,Uri.EMPTY,getApplicationContext(),WebBrowser.class);
+                    Intent intent = new Intent(Intent.ACTION_VIEW, Uri.EMPTY, getApplicationContext(), WebBrowser.class);
                     Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(link));
                     startActivity(browserIntent);
                 }
@@ -66,6 +67,7 @@ public class MainActivity extends AppCompatActivity implements NewsListener {
             default:
                 return false;
         }
+        Toast.makeText(getApplicationContext(), "loading...", Toast.LENGTH_SHORT).show();
         return true;
     }
 
@@ -74,5 +76,11 @@ public class MainActivity extends AppCompatActivity implements NewsListener {
         ListView view = (ListView) findViewById(R.id.ListView);
         adapter = new NewsAdapter(this, news);
         view.setAdapter(adapter);
+        Toast.makeText(getApplicationContext(), "news received ", Toast.LENGTH_SHORT).show();
+    }
+
+    @Override
+    public void onFail() {
+        Toast.makeText(getApplicationContext(), "failed to load news ", Toast.LENGTH_SHORT).show();
     }
 }

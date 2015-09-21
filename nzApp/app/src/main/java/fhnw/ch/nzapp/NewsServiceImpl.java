@@ -34,6 +34,7 @@ public class NewsServiceImpl implements NewsService {
             @Override
             public void failure(RetrofitError error) {
                 System.out.println("Error-Message: " + error);
+                listener.onFail();
             }
         };
         switch (language) {

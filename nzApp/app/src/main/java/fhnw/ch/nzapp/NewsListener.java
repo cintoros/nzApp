@@ -7,4 +7,5 @@ package fhnw.ch.nzapp;
 public interface NewsListener {
 
     void setNews(News[] news);
+    void onFail();
 }
