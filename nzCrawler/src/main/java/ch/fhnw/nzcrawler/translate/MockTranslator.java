@@ -16,7 +16,7 @@ public class MockTranslator implements TranslatorInterface {
 
     @Override
     public String getTranslation(Language language, String text) {
-        return "translated" + text;
+        return "translated: " + text;
     }
 
 }

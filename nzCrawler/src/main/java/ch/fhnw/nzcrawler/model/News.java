@@ -5,7 +5,7 @@ package ch.fhnw.nzcrawler.model;
  */
 public class News {
 
-    private Long newsId;
+    private final Long newsId;
     private final String title, undertitle, link, imageLink, language;
 
     public News(Long newsId, String title, String undertitle, String link, String imageLink, String language) {
