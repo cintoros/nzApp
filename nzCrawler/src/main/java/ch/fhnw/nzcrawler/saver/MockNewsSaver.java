@@ -20,8 +20,8 @@ public class MockNewsSaver extends NewsSaverService {
     public void save(Collection<News> news) {
         clearRepos();
         for (News aNew : news) {
-            newsLinkRepo.save(new NewsLink(aNew.getId(), aNew.getLink(), aNew.getImageLink()));
-            newsLangRepo.save(new NewsLang(aNew.getId(), aNew.getTitle(), aNew.getUndertitle(), aNew.getLanguage()));//saving as german
+            newsLinkRepo.save(new NewsLink(aNew.getNewsId(), aNew.getLink(), aNew.getImageLink()));
+            newsLangRepo.save(new NewsLang(aNew.getNewsId(), aNew.getTitle(), aNew.getUndertitle(), aNew.getLanguage()));//saving as german
         }
     }
 
