@@ -7,6 +7,10 @@ import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.TextView;
 
+import fhnw.ch.nzapp.news.model.News;
+import fhnw.ch.nzapp.news.image.DownloadImageTask;
+import fhnw.ch.nzapp.news.image.ImageLoadListener;
+
 /**
  * @author Elias Schorr
  * @since 16.09.2015

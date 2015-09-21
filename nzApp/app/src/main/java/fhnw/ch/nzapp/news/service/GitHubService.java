@@ -1,5 +1,7 @@
-package fhnw.ch.nzapp;
+package fhnw.ch.nzapp.news.service;
 
+import fhnw.ch.nzapp.AppSettings;
+import fhnw.ch.nzapp.news.model.News;
 import retrofit.Callback;
 import retrofit.http.GET;
 

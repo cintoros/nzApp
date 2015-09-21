@@ -11,6 +11,13 @@ import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.Toast;
 
+import fhnw.ch.nzapp.news.model.Language;
+import fhnw.ch.nzapp.news.model.News;
+import fhnw.ch.nzapp.news.service.MockNewsService;
+import fhnw.ch.nzapp.news.service.NewsListener;
+import fhnw.ch.nzapp.news.service.NewsService;
+import fhnw.ch.nzapp.news.service.NewsServiceImpl;
+
 /**
  * @author Elias Schorr
  */

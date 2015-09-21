@@ -1,8 +1,10 @@
-package fhnw.ch.nzapp;
+package fhnw.ch.nzapp.news.image;
 
 import android.graphics.Bitmap;
 import android.view.View;
 import android.widget.ImageView;
+
+import fhnw.ch.nzapp.R;
 
 /**
  * @author Elias Schorr

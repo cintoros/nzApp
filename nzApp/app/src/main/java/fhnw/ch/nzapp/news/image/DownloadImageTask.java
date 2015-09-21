@@ -1,4 +1,4 @@
-package fhnw.ch.nzapp;
+package fhnw.ch.nzapp.news.image;
 
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;

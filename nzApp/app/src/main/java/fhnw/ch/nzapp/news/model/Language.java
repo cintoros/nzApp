@@ -1,4 +1,4 @@
-package fhnw.ch.nzapp;
+package fhnw.ch.nzapp.news.model;
 
 /**
  * @author Elias Schorr

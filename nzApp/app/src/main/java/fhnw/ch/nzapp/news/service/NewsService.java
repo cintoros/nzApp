@@ -1,4 +1,6 @@
-package fhnw.ch.nzapp;
+package fhnw.ch.nzapp.news.service;
+
+import fhnw.ch.nzapp.news.model.Language;
 
 /**
  * @author Elias Schorr
