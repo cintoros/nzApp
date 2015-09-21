@@ -23,6 +23,12 @@ public abstract class NewsSaverService {
         newsLinkRepo.deleteAll();
     }
 
+    /**
+     * saves the Collection in NewsLangRepo and NewsLinkRepo and translates the
+     * data if MULTI_LANG is set.
+     *
+     * @param news
+     */
     abstract public void save(Collection<News> news);
 
 }
