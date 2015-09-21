@@ -5,7 +5,7 @@
     <item
         android:id="@+id/english"
         android:orderInCategory="120"
-        android:title="english" />
+        android:title="English" />
     <item
         android:id="@+id/german"
         android:orderInCategory="120"
@@ -13,5 +13,5 @@
     <item
         android:id="@+id/french"
         android:orderInCategory="120"
-        android:title="francais" />
+        android:title="français" />
 </menu>

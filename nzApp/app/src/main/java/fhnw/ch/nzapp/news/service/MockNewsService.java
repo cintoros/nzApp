@@ -16,7 +16,9 @@ public class MockNewsService implements NewsService {
 
     @Override
     public void getNewsByLanguage(Language language) {
-        News news[] = {new News("title_1", "undertitle_1", null, null), new News("title_1", "undertitel_1", null, null)};
+        News news[] = {new News("Start", "Um die News abzurufen klicken Sie auf das Menu und wählen Sie Deutsch", null, null),
+                new News("Start", "To retrieve the news, click the menu and select English", null, null),
+                new News("Démarrer", "Pour récupérer les nouvelles, cliquez sur le menu et sélectionnez français", null, null)};
         listener.setNews(news);
     }
 }
