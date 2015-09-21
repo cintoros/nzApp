@@ -8,10 +8,10 @@ public class News {
     private final String title, undertitle, link, imageLink;
 
     public News() {
-        this.title = "no title";
-        this.undertitle = "no undertitle";
-        this.link = "no link";
-        this.imageLink = "no link";
+        this.title = null;
+        this.undertitle = null;
+        this.link = null;
+        this.imageLink = null;
     }
 
     public News(String title, String undertitle, String link, String imageLink) {
