@@ -30,6 +30,7 @@ public class MainActivity extends AppCompatActivity implements NewsListener {
                     if (!link.startsWith("https://") && !link.startsWith("http://")) {
                         link = "http://" + link;
                     }
+                    Intent intent =new Intent(Intent.ACTION_VIEW,Uri.EMPTY,getApplicationContext(),WebBrowser.class);
                     Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(link));
                     startActivity(browserIntent);
                 }
