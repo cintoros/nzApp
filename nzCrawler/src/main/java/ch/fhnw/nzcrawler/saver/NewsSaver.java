@@ -16,7 +16,7 @@ import org.springframework.stereotype.Service;
  * @since 18.09.2015
  */
 @Service
-@Profile("prod")
+@Profile(Settings.PROD)
 public class NewsSaver extends NewsSaverService {
 
     @Override

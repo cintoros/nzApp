@@ -1,5 +1,6 @@
 package ch.fhnw.nzcrawler.saver;
 
+import ch.fhnw.nzcrawler.Settings;
 import ch.fhnw.nzcrawler.model.News;
 import ch.fhnw.nzcrawler.model.NewsLang;
 import ch.fhnw.nzcrawler.model.NewsLink;
@@ -13,7 +14,7 @@ import org.springframework.stereotype.Service;
  * @since 18.09.2015
  */
 @Service
-@Profile("dev")
+@Profile(Settings.DEV)
 public class MockNewsSaver extends NewsSaverService {
 
     @Override

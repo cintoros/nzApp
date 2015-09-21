@@ -1,5 +1,6 @@
 package ch.fhnw.nzcrawler.crawl;
 
+import ch.fhnw.nzcrawler.Settings;
 import ch.fhnw.nzcrawler.model.News;
 import java.util.Collection;
 import java.util.HashSet;
@@ -11,7 +12,7 @@ import org.springframework.stereotype.Service;
  * @author Elias Schorr
  */
 @Service
-@Profile("dev")
+@Profile(Settings.DEV)
 public class MockCrawler implements CrawlerInterface {
 
     @Override

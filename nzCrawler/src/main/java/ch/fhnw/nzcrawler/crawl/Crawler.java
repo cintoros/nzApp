@@ -1,5 +1,6 @@
 package ch.fhnw.nzcrawler.crawl;
 
+import ch.fhnw.nzcrawler.Settings;
 import ch.fhnw.nzcrawler.model.News;
 import java.util.Collection;
 import java.util.HashSet;
@@ -15,14 +16,14 @@ import org.springframework.stereotype.Service;
  * @author Elias Schorr
  */
 @Service
-@Profile("prod")
+@Profile(Settings.PROD)
 public class Crawler implements CrawlerInterface {
 
     @Override
     public Collection<News> crawl() {
         HashSet<News> news = new HashSet<>();
         try {
-            String startURL = "http://www.nzz.ch/";
+            String startURL = Settings.HOMEPAGE;
             Document doc = Jsoup.connect(startURL).get();
             Elements contents = doc.select("article"); // extract all articles out of src
             long counter = 1;
