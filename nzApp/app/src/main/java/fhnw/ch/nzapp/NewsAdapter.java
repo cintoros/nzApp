@@ -10,7 +10,8 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 /**
- * Created by eliasschorr on 16.09.2015.
+ * @author Elias Schorr
+ * @since 16.09.2015
  */
 public class NewsAdapter extends ArrayAdapter<News> implements NewsListener {
 

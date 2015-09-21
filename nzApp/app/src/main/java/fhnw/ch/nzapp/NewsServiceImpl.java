@@ -6,7 +6,8 @@ import retrofit.RetrofitError;
 import retrofit.client.Response;
 
 /**
- * Created by eliasschorr on 16.09.2015.
+ * @author Elias Schorr
+ * @since 16.09.2015
  */
 public class NewsServiceImpl implements NewsService {
     private final NewsListener listener;

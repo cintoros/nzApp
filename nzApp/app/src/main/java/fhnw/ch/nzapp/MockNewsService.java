@@ -1,7 +1,8 @@
 package fhnw.ch.nzapp;
 
 /**
- * Created by eliasschorr on 16.09.2015.
+ * @author Elias Schorr
+ * @since 16.09.2015
  */
 public class MockNewsService implements NewsService {
     private final NewsListener listener;

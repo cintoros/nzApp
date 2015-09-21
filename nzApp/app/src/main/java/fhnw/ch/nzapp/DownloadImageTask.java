@@ -7,7 +7,8 @@ import android.os.AsyncTask;
 import java.io.InputStream;
 
 /**
- * Created by eliasschorr on 18.09.2015.
+ * @author  Elias Schorr
+ * @since 18.09.2015
  */
 public class DownloadImageTask extends AsyncTask<String, Void, Bitmap> {
     ImageLoadListener listener;

@@ -11,7 +11,7 @@ import android.widget.AdapterView;
 import android.widget.ListView;
 
 /**
- * Elias Schorr <elias.schorr@fhnw.ch>
+ * @author Elias Schorr
  */
 public class MainActivity extends AppCompatActivity implements NewsListener {
     private final NewsService newsService = new NewsServiceImpl(this);

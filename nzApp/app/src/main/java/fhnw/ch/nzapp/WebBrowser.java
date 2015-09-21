@@ -7,6 +7,9 @@ import android.view.MenuItem;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
 
+/**
+ * @author Elias Schorr
+ */
 public class WebBrowser extends AppCompatActivity {
 
     @Override

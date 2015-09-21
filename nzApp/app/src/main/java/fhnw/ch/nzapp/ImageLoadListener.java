@@ -5,7 +5,8 @@ import android.view.View;
 import android.widget.ImageView;
 
 /**
- * Created by eliasschorr on 18.09.2015.
+ * @author Elias Schorr
+ * @since 18.09.2015.
  */
 public class ImageLoadListener {
     private final View parent;
