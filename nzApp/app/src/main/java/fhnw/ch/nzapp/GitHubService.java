@@ -8,16 +8,16 @@ import retrofit.http.GET;
  */
 public interface GitHubService {
 
-    @GET("/alltitles")
+    @GET(AppSettings.All_TITLES)
     void getNews(Callback<News[]> values);
 
-    @GET("/titles?language=DE")
+    @GET(AppSettings.TITLE_LANG + "DE")
     void getNewsDE(Callback<News[]> values);
 
-    @GET("/titles?language=EN")
+    @GET(AppSettings.TITLE_LANG + "EN")
     void getNewsEN(Callback<News[]> values);
 
-    @GET("/titles?language=FR")
+    @GET(AppSettings.TITLE_LANG + "FR")
     void getNewsFR(Callback<News[]> values);
 }
 

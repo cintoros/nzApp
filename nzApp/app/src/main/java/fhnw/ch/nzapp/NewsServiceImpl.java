@@ -12,11 +12,10 @@ public class NewsServiceImpl implements NewsService {
     private final NewsListener listener;
     private final GitHubService service;
     private final RestAdapter restAdapter;
-    private final String url = "http://10.0.2.2:8080/";
 
     public NewsServiceImpl(NewsListener listener) {
         restAdapter = new RestAdapter.Builder()
-                .setEndpoint(url)
+                .setEndpoint(AppSettings.SERVICE_URL)
                 .build();
         service = restAdapter.create(GitHubService.class);
         this.listener = listener;
