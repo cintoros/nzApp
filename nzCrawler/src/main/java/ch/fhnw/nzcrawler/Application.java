@@ -1,5 +1,6 @@
 package ch.fhnw.nzcrawler;
 
+import ch.fhnw.nzcrawler.crawl.AutoCrawler;
 import ch.fhnw.nzcrawler.crawl.CrawlerInterface;
 import ch.fhnw.nzcrawler.model.News;
 import ch.fhnw.nzcrawler.saver.NewsSaverService;
@@ -23,8 +24,13 @@ public class Application {
     @Bean
     CommandLineRunner runner(NewsSaverService newsRepo, CrawlerInterface crawler) {
         return args -> {
-            Collection<News> crawl = crawler.crawl();
-            newsRepo.save(crawl);
+            if (Settings.AUTO_CRAWL) {
+                AutoCrawler autoCrawler = new AutoCrawler(newsRepo, crawler);
+                autoCrawler.start();
+            } else {
+                Collection<News> crawl = crawler.crawl();
+                newsRepo.save(crawl);
+            }
         };
     }
 }
