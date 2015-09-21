@@ -12,7 +12,7 @@ public class MockNewsService implements NewsService {
 
     @Override
     public void getNewsByLanguage(Language language) {
-        News news[] = {new News("title_1", "undertitle_1", "link", "link"), new News("title_1", "undertitel_1", "link", "link")};
+        News news[] = {new News("title_1", "undertitle_1", null, null), new News("title_1", "undertitel_1", null, null)};
         listener.setNews(news);
     }
 }
